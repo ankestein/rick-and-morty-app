@@ -1,0 +1,9 @@
+.characterCard {
+    /*border: black solid 2px;*/
+}
+
+
+.characterCard__image {
+    width: 200px;
+    margin-bottom: 60px;
+}

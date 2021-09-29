@@ -6,11 +6,10 @@
 
 .header__logo {
     width: 48px;
-    margin-left: 20px;
 }
 
 
 .header__title {
-    font-family: sans-serif;
     color: steelblue;
+    margin-left: 20px;
 }
