@@ -1,18 +1,27 @@
 
 import './App.css';
+import Header from "./components/Header";
 
 function App() {
 
     const name = "Johnny"
 
     return (
-        <div className="App">
+        <div>
+            <div>
+                <Header title="Rick and Morty App"/>
+                <Header title="Another title"/>
+            </div>
 
-            <h1>Hello World!</h1>
-            <p>{name}</p>
-            <p>{`Hello, ${name}!`}</p>
-            <p>{7 * 11}</p>
 
+
+            <div className="App">
+                <h2>Hello World!</h2>
+                <p>{name}</p>
+                <p>{`Hello, ${name}!`}</p>
+                <p>{7 * 11}</p>
+
+            </div>
         </div>
     );
 }
