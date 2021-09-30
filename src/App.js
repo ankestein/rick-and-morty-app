@@ -1,7 +1,6 @@
 import './App.css';
 import Header from "./components/Header";
 import characterResponse from "./character-response.json";
-import CharacterCard from "./components/CharacterCard";
 import CharacterGallery from "./components/CharacterGallery";
 
 
@@ -11,7 +10,7 @@ function App() {
 
     return (
               <div>
-                <Header title="Rick and Morty App"/>
+                <Header title="Rick and Morty Gallery"/>
                 <CharacterGallery characters={characters}/>
             </div>
 
