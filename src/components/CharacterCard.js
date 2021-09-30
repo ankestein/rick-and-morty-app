@@ -1,11 +1,11 @@
 import "./CharacterCard.css"
 
-export default function CharacterCard(props) {
+export default function CharacterCard({character}) {
     return (
-        <div className="characterCard">
-            <h3 className="characterCard__name">{props.character.name}</h3>
-            <p className="characterCard__origin">{props.character.origin.name}</p>
-            <img className="characterCard__image" src={props.character.image} alt="character image"/>
+        <div className="character-card">
+            <h3 className="character-card__name">{character.name}</h3>
+            <div className="character-card__origin">{character.origin.name}</div>
+            <img className="character-card__image" src={character.image} alt={character.name}/>
         </div>
     )
 }

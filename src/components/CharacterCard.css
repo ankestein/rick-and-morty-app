@@ -1,9 +1,23 @@
-.characterCard {
-    /*border: black solid 2px;*/
+.character-card {
+    border: black solid 1px;
+    border-radius: 12px;
+    box-shadow: 1px 2px 8px #666;
+    margin: 50px;
+    padding: 10px;
+    text-align: center;
+    background-color: cadetblue;
+    color: aliceblue;
 }
 
+.character-card__name {
+}
 
-.characterCard__image {
+.character-card__origin {
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.character-card__image {
     width: 200px;
     margin-bottom: 60px;
 }
