@@ -4,4 +4,5 @@ mit `fetch` ab und ersetze deine statischen Daten aus [Aufgabe 3](https://github
 
 # Aufgabe Character Card
 Füge Character Cards zur Website hinzu:
+<br/><br/>
 ![Excalidraw Character Card](./public/charactercards.png)
