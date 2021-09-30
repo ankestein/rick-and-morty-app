@@ -9,24 +9,12 @@ function App() {
 
     const characters = characterResponse.results;
 
-    const name = "Johnny"
-
     return (
-        <div>
-
-            <div>
+              <div>
                 <Header title="Rick and Morty App"/>
                 <CharacterGallery characters={characters}/>
             </div>
 
-            <div className="App">
-                <h2>Hello World!</h2>
-                <p>{name}</p>
-                <p>{`Hello, ${name}!`}</p>
-                <p>{7 * 11}</p>
-            </div>
-
-        </div>
     );
 }
 
