@@ -8,6 +8,7 @@ import {useState} from "react";
 function App() {
 
     const [characters, setCharacters] = useState([])
+    const [input, setInput] = useState("")
 
     const loadCharacters = () => {
         setCharacters(characterResponse.results)
@@ -17,17 +18,24 @@ function App() {
         setCharacters([])
     }
 
+    const handleInput = event => {
+        const input = event.target.value
+        setInput(input)
+    }
 
-
+    const filteredCharacters =
+        characters.filter(character =>
+        character.name.toLowerCase().includes(input.toLowerCase())
+    )
 
     return (
         <div>
             <Header title="Rick and Morty Gallery"/>
             <button onClick={loadCharacters}>Load characters</button>
-            <button onClick={clearCharacters}>Remove characters</button>
-            <CharacterGallery characters={characters}/>
+            <button onClick={clearCharacters}>Clear characters</button>
+            <input type="text" onChange={handleInput}/>
+            <CharacterGallery characters={filteredCharacters}/>
         </div>
-
     );
 }
 
