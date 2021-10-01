@@ -21,14 +21,12 @@ function App() {
             character.name.toLowerCase().includes(input.toLowerCase())
         )
 
-console.log("First line")
 
     useEffect(() => {
             fetchCharacters()
-                .then(console.log("characters fetched"))
-                .then(result => {setCharacters(result)})
+              .then(result => {setCharacters(result)})
             },
-        [input]
+        []
     )
 
 
