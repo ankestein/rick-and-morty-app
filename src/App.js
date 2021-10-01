@@ -1,8 +1,8 @@
 import './App.css';
 import Header from "./components/Header";
-import characterResponse from "./character-response.json";
 import CharacterGallery from "./components/CharacterGallery";
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {fetchCharacters} from "./service/rick-and-morty-api-service";
 
 
 function App() {
@@ -10,13 +10,6 @@ function App() {
     const [characters, setCharacters] = useState([])
     const [input, setInput] = useState("")
 
-    const loadCharacters = () => {
-        setCharacters(characterResponse.results)
-    }
-
-    const clearCharacters = () => {
-        setCharacters([])
-    }
 
     const handleInput = event => {
         const newInput = event.target.value
@@ -25,14 +18,23 @@ function App() {
 
     const filteredCharacters =
         characters.filter(character =>
-        character.name.toLowerCase().includes(input.toLowerCase())
+            character.name.toLowerCase().includes(input.toLowerCase())
+        )
+
+console.log("First line")
+
+    useEffect(() => {
+            fetchCharacters()
+                .then(console.log("characters fetched"))
+                .then(result => {setCharacters(result)})
+            },
+        [input]
     )
+
 
     return (
         <div>
             <Header title="Rick and Morty Gallery"/>
-            <button onClick={loadCharacters}>Load characters</button>
-            <button onClick={clearCharacters}>Clear characters</button>
             <input type="text" onChange={handleInput}/>
             <CharacterGallery characters={filteredCharacters}/>
         </div>
