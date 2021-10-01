@@ -19,8 +19,8 @@ function App() {
     }
 
     const handleInput = event => {
-        const input = event.target.value
-        setInput(input)
+        const newInput = event.target.value
+        setInput(newInput)
     }
 
     const filteredCharacters =
