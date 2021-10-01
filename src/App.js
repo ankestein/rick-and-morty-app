@@ -24,7 +24,8 @@ function App() {
 
     useEffect(() => {
             fetchCharacters()
-              .then(result => {setCharacters(result)})
+                .then(result => {setCharacters(result)})
+                .catch(error => console.log(error))
             },
         []
     )
