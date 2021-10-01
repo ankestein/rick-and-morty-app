@@ -1,3 +1,4 @@
+
 export const fetchCharacters = () => {
     return  (
         fetch("https://rickandmortyapi.com/api/character")
@@ -5,3 +6,5 @@ export const fetchCharacters = () => {
         .then(json => json.results)
     )
 }
+
+
