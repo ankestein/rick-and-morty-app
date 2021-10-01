@@ -34,11 +34,11 @@ function App() {
     )
 
 
-    const numberOfPages = () => {fetchCharactersFirstPage()
+    /*const numberOfPages = () => {fetchCharactersFirstPage()
         .then(response => response.info.pages)
 
 
-    console.log(`Number of pages: ${numberOfPages}`)}
+    console.log(`Number of pages: ${numberOfPages}`)}*/
 
 
     const turnForward = () => {
@@ -62,7 +62,12 @@ function App() {
             <button onClick={turnBack}>Previous Page</button>
             <button onClick={turnForward}>Next Page</button>
             <input type="text" onChange={handleInput}/>
-            <CharacterGallery characters={filteredCharacters}/>
+
+
+            {characters.length === 0 ?
+                <p>No characters found</p> :
+                <CharacterGallery characters={filteredCharacters}/>
+            }
         </div>
     );
 }

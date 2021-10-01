@@ -10,7 +10,13 @@ export const fetchCharactersFirstPage = () => {
 export const fetchCharactersPerPage = (pageNumber) => {
     return  (
         fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
-            .then(response => response.json())
+          .then(response => {
+              if (response.ok) {
+                  return response.json()
+              } else {
+                  throw new Error("Failed to load characters from API")
+              }
+          })
     )
 }
 
