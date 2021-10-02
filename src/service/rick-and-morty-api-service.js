@@ -1,22 +1,22 @@
-
-export const fetchCharactersFirstPage = () => {
-    return  (
+export const fetchNumberOfPages = () => {
+    return (
         fetch("https://rickandmortyapi.com/api/character")
-        .then(response => response.json())
+            .then(response => response.json())
+            .then(json => json.info.pages)
     )
 }
 
 
 export const fetchCharactersPerPage = (pageNumber) => {
-    return  (
+    return (
         fetch(`https://rickandmortyapi.com/api/character/?page=${pageNumber}`)
-          .then(response => {
-              if (response.ok) {
-                  return response.json()
-              } else {
-                  throw new Error("Failed to load characters from API")
-              }
-          })
+            .then(response => {
+                if (response.ok) {
+                    return response.json()
+                } else {
+                    throw new Error("Failed to load characters from API")
+                }
+            })
     )
 }
 

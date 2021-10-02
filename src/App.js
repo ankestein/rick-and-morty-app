@@ -2,7 +2,11 @@ import './App.css';
 import Header from "./components/Header";
 import CharacterGallery from "./components/CharacterGallery";
 import {useEffect, useState} from "react";
-import {fetchCharactersFirstPage, fetchCharactersPerPage} from "./service/rick-and-morty-api-service";
+import {
+    fetchCharactersFirstPage,
+    fetchCharactersPerPage,
+    fetchNumberOfPages
+} from "./service/rick-and-morty-api-service";
 
 
 function App() {
@@ -10,8 +14,8 @@ function App() {
     const [characters, setCharacters] = useState([])
     const [input, setInput] = useState("")
     const [pageNumber, setPageNumber] = useState(1)
+    const [numberOfPages, setNumberOfPages] = useState()
     // const [page, setPage] = useState("https://rickandmortyapi.com/api/character/?page=1")
-
 
     const handleInput = event => {
         const newInput = event.target.value
@@ -33,35 +37,38 @@ function App() {
         [pageNumber]
     )
 
+    useEffect(() => {
+            fetchNumberOfPages()
+                .then(response => setNumberOfPages(response))
+                .catch(error => console.log(error))
+        },
+        []
+    )
 
-    /*const numberOfPages = () => {fetchCharactersFirstPage()
-        .then(response => response.info.pages)
 
-
-    console.log(`Number of pages: ${numberOfPages}`)}*/
+    //console.log(`Number of pages: ${numberOfPages}`)
 
 
     const turnForward = () => {
-        if (pageNumber < 34) {
+        if (pageNumber < numberOfPages) {
             setPageNumber(pageNumber + 1)
         }
-        fetchCharactersPerPage(pageNumber)
-    }
+     }
 
     const turnBack = () => {
         if (pageNumber > 1) {
             setPageNumber(pageNumber - 1)
         }
-        fetchCharactersPerPage(pageNumber)
     }
 
 
     return (
         <div>
             <Header title="Rick and Morty Gallery"/>
+            <p>{`Page ${pageNumber}`}</p>
             <button onClick={turnBack}>Previous Page</button>
             <button onClick={turnForward}>Next Page</button>
-            <input type="text" onChange={handleInput}/>
+             <input type="text" onChange={handleInput}/>
 
 
             {characters.length === 0 ?
