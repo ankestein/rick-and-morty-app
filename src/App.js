@@ -7,6 +7,7 @@ import {
     fetchCharactersPerPage,
     fetchNumberOfPages
 } from "./service/rick-and-morty-api-service";
+import styled from "styled-components/macro"
 
 
 function App() {
@@ -66,9 +67,9 @@ function App() {
         <div>
             <Header title="Rick and Morty Gallery"/>
             <p>{`Page ${pageNumber}`}</p>
-            <button onClick={turnBack}>Previous Page</button>
-            <button onClick={turnForward}>Next Page</button>
-             <input type="text" onChange={handleInput}/>
+            <Button onClick={turnBack}>Previous Page</Button>
+            <Button onClick={turnForward}>Next Page</Button>
+             <input type="text" onChange={handleInput} placeholder="Filter characters"/>
 
 
             {characters.length === 0 ?
@@ -78,5 +79,20 @@ function App() {
         </div>
     );
 }
+
+
+/* -------------- Styling ------------------------------*/
+const Button = styled.button`
+  background: sandybrown;
+  `
+
+
+
+
+
+
+
+
+
 
 export default App;
